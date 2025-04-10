@@ -1,6 +1,6 @@
 {:deps {aleph/aleph {:mvn/version "0.8.3"}
         com.github.oliyh/martian {:mvn/version "0.1.30"}
-        com.monkeyprojects/martian-aleph {:mvn/version "0.1.2-SNAPSHOT"}}
+        com.monkeyprojects/martian-aleph {:mvn/version "0.1.2"}}
  
  :paths ["src"]
 

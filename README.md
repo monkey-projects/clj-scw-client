@@ -46,6 +46,28 @@ Since we're using [Aleph](https://aleph.io), all responses are asynchronous.  Th
 allows you to send multiple requests in parallel.  You do need to `deref` each response
 in order to get to the result.
 
+## Available API's
+
+Currently, these api's are available.  In order to use them, invoke the associated function
+to create a context that accesses the endpoint.
+
+|---|---|
+|API|Context function|
+|Instances|`instance-ctx`|
+|Serverless containers|`containers-ctx`|
+|Serverless functions|`functions-ctx`|
+|Serverless jobs|`jobs-ctx`|
+|Container registry|`registry-ctx`|
+|NATS messaging|`nats-ctx`|
+|Secrets|`secrets-ctx`|
+|Domains and DNS|`domain-ctx`|
+
+### Object Storage
+
+A special case is object storage, which exposes an AWS S3 compatible API.  We don't provide
+functionality for that here, as [several](https://github.com/weavejester/clj-aws-s3)
+[libraries](https://github.com/mcohen01/amazonica) already exist that provide that functionality.
+
 ## License
 
 [MIT License](LICENSE)

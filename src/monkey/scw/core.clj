@@ -14,9 +14,15 @@
 (def default-version "v1beta1")
 
 (def api-config
-  {:instance {:version "v1"}
-   :nats {:id "mnq"
-          :api "NatsApi"}})
+  {:instance
+   {:version "v1"}
+   :nats
+   {:id "mnq"
+    :api "NatsApi"}
+   :serverless-jobs
+   {:version "v1alpha1"}
+   :domain
+   {:version "v2beta1"}})
 
 (defn openapi-url [api version]
   (let [version (or version (get-in api-config [api :version] default-version))
@@ -76,5 +82,17 @@
 (def nats-ctx
   "Context for the NATS messaging api"
   (partial make-ctx :nats))
+
+(def functions-ctx
+  "Context for the serverless functions api"
+  (partial make-ctx :functions))
+
+(def jobs-ctx
+  "Context for the serverless jobs api"
+  (partial make-ctx :serverless-jobs))
+
+(def domain-ctx
+  "Context for the domain and dns api"
+  (partial make-ctx :domain))
 
 ;; TODO Add more contexts
