@@ -53,6 +53,7 @@ to create a context that accesses the endpoint.
 
 |---|---|
 |API|Context function|
+|---|---|
 |Instances|`instance-ctx`|
 |Serverless containers|`containers-ctx`|
 |Serverless functions|`functions-ctx`|
@@ -61,6 +62,7 @@ to create a context that accesses the endpoint.
 |NATS messaging|`nats-ctx`|
 |Secrets|`secrets-ctx`|
 |Domains and DNS|`domain-ctx`|
+|---|---|
 
 ### Object Storage
 
