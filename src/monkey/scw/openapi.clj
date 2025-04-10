@@ -2,7 +2,6 @@
   (:require [aleph.http :as http]
             [clj-yaml.core :as yaml]
             [clojure.java.io :as io]
-            [clojure.tools.logging :as log]
             [clojure.walk :as walk]
             [manifold.deferred :as md]))
 

@@ -22,7 +22,11 @@
 
   (testing "applies default api version"
     (is (= "https://www.scaleway.com/en/developers/static/scaleway.instance.v1.Api.yml"
-           (sut/openapi-url :instance (sut/default-version :instance))))))
+           (sut/openapi-url :instance nil))))
+
+  (testing "applies default api name"
+    (is (= "https://www.scaleway.com/en/developers/static/scaleway.mnq.v1beta1.NatsApi.yml"
+           (sut/openapi-url :nats nil)))))
 
 (deftest make-ctx
   (testing "creates context for given api"
