@@ -1,0 +1,48 @@
+{:deps {aleph/aleph {:mvn/version "0.8.3"}
+        com.github.oliyh/martian {:mvn/version "0.1.30"}
+        com.monkeyprojects/martian-aleph {:mvn/version "0.1.2-SNAPSHOT"}}
+ 
+ :paths ["src"]
+
+ :aliases
+ {:dev
+  {:extra-paths ["env/dev" "dev-resources"]}
+
+  ;; clj -X:test
+  :test
+  {:extra-paths ["test" "dev-resources"]
+   :extra-deps {ch.qos.logback/logback-classic {:mvn/version "1.5.18"}
+                com.monkeyprojects/build {:mvn/version "0.3.1"}
+                yogthos/config {:mvn/version "1.2.1"}}
+   :exec-fn monkey.test/all}
+
+  ;; clj -X:test:watch
+  :watch
+  {:exec-fn monkey.test/watch}
+
+  ;; clj -X:test:junit
+  :junit
+  {:exec-fn monkey.test/junit}
+
+  ;; clj -X:jar
+  :jar
+  {:extra-deps {com.monkeyprojects/build {:mvn/version "0.3.1"}}
+   :exec-fn monkey.build/jar
+   :exec-args {:jar "target/scw-client.jar"
+               :lib com.monkeyprojects/clj-scw-client
+               :version [[:env "LIB_VERSION"] "0.1.0-SNAPSHOT"]
+               :scm
+               {:url "https://github.com/monkey-projects/clj-scw-client.git"}
+               :pom-data
+               [[:licenses
+                 [:license
+                  [:name "MIT"]
+                  [:url "https://mit-license.org"]]]]}}
+
+  ;; clj -X:jar:install
+  :install
+  {:exec-fn monkey.build/jar+install}
+
+  ;; clj -X:jar:publish
+  :publish
+  {:exec-fn monkey.build/jar+deploy}}}
